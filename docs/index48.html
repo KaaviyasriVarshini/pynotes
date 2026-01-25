@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>My Python Notes</title>
+
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://KaaviyasriVarshini.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://KaaviyasriVarshini.github.io/pynotes">My Python Notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-finally-block.html"><h3 class="article-title">Using Finally Block</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Execution completed&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>File not found
+Execution completed
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-finally-block.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-flag-with-break-for-controlled-exit.html"><h3 class="article-title">Using Flag With Break For Controlled Exit</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">break</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found:&quot;</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">Found</span><span class="o">:</span><span class="w"> </span><span class="n">True</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-flag-with-break-for-controlled-exit.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-for-with-index-via-enumerate.html"><h3 class="article-title">Using For With Index Via Enumerate()</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;Java&quot;</span><span class="p">,</span> <span class="s2">&quot;C++&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">lang</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">languages</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">lang</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">0</span><span class="w"> </span><span class="n">Python</span>
+<span class="mf">1</span><span class="w"> </span><span class="n">Java</span>
+<span class="mf">2</span><span class="w"> </span><span class="n">C</span><span class="o">++</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-for-with-index-via-enumerate.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-generators-with-next-copy.html"><h3 class="article-title">Using Generators With Next()   Copy</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">alpha_generator</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="s2">&quot;A&quot;</span>
+    <span class="k">yield</span> <span class="s2">&quot;B&quot;</span>
+    <span class="k">yield</span> <span class="s2">&quot;C&quot;</span>
+
+<span class="n">gen</span> <span class="o">=</span> <span class="n">alpha_generator</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>A
+B
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-generators-with-next-copy.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-global-to-modify-global-variable.html"><h3 class="article-title">Using Global To Modify Global Variable</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">counter</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">increment</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>  <span class="c1"># Output: 1</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">1</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-global-to-modify-global-variable.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-help-for-module-documentation.html"><h3 class="article-title">Using Help() For Module Documentation</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+
+<span class="c1">#Displays detailed documentation of a module and its components.</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">Help</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">module</span><span class="w"> </span><span class="n">math</span><span class="p">:</span>
+
+<span class="n">NAME</span>
+<span class="w">    </span><span class="n">math</span>
+
+<span class="n">MODULE</span><span class="w"> </span><span class="n">REFERENCE</span>
+<span class="w">    </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mf">3.11</span><span class="o">/</span><span class="n">library</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">html</span>
+
+<span class="w">    </span><span class="n">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">documentation</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Python</span>
+<span class="w">    </span><span class="n">source</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w">  </span><span class="n">It</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">incomplete</span><span class="p">,</span><span class="w"> </span><span class="n">incorrect</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="n">that …</span></code></pre></div><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-help-for-module-documentation.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-if-name-main.html"><h3 class="article-title">Using If   Name   == "  Main  "</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Main function executed&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Main function executed
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-if-name-main.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-ifelifelse-chain.html"><h3 class="article-title">Using If...Elif...Else Chain</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">score</span> <span class="o">=</span> <span class="mi">85</span>
+
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grade: A&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">75</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grade: B&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grade: C&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grade: D&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">Grade</span><span class="o">:</span><span class="w"> </span><span class="n">B</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-ifelifelse-chain.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-ifelse-statement.html"><h3 class="article-title">Using If...Else Statement</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">temperature</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s warm outside&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s cold outside&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>It&#39;s cold outside
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-ifelse-statement.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-input-to-receive-user-input.html"><h3 class="article-title">Using Input() To Receive User Input</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello,&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="c1">#input() always returns data as a string.</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Enter your name:  Kaaviya
+
+
+Hello, Kaaviya
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-input-to-receive-user-input.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+            <!-- /#posts-list -->
+<div class="pagination-centered">
+<h6 class="subheader">Page 48 of 56</h6>
+
+<p>
+            <a href="https://KaaviyasriVarshini.github.io/pynotes/index47.html">&laquo; Prev</a>
+
+        <a href="https://KaaviyasriVarshini.github.io/pynotes/index49.html">Next &raquo;</a>
+</p>
+</div>
+
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/assignment.html">assignment</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/langchain.html">langchain</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/math.html">math</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/python_subtopics.html">python_subtopics</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/KaaviyasriVarshini">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/kaaviyasri-varshini-raju-2787b5241/">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>My Python Notes by Kaaviya</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>

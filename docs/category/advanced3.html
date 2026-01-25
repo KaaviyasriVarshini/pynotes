@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>My Python Notes - advanced</title>
+
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://KaaviyasriVarshini.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://KaaviyasriVarshini.github.io/pynotes">My Python Notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/shadowing-variables.html"><h3 class="article-title">Shadowing Variables</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Shadows global x</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/shadowing-variables.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/string-formatting-with-f-strings-recommended.html"><h3 class="article-title">String Formatting With F-Strings (Recommended)</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+<span class="n">score</span> <span class="o">=</span> <span class="mi">95</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> scored </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2"> marks&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello </span><span class="si">{}</span><span class="s2">, your score is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Score: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">score</span><span class="p">)</span> <span class="c1">#Old-Style Formatting (%)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Alice scored 95 marks
+Hello Alice, your score is 95
+Score: 95
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/string-formatting-with-f-strings-recommended.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/sysstdin-sysstdout-sysstderr-fundamentals.html"><h3 class="article-title">Sys.Stdin, Sys.Stdout, Sys.Stderr Fundamentals</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>      <span class="c1"># Read all from stdin</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Write to stdout</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Error</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Write to stderr</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Hello
+
+
+Error
+
+
+
+
+
+6
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/sysstdin-sysstdout-sysstderr-fundamentals.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/testing-console-i-o.html"><h3 class="article-title">Testing Console I-O</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">process_stream</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">out</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">inp</span><span class="p">:</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+
+<span class="c1"># In production</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">process_stream</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+
+<span class="c1"># In tests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="s2">&quot;hello</span><span class="se">\n</span><span class="s2">world</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+<span class="n">process_stream</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">out</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;HELLO</span><span class="se">\n</span><span class="s2">WORLD</span><span class="se">\n</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/testing-console-i-o.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/untitled-9378.html"><h3 class="article-title">Untitled-9378</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/untitled-9378.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-pathlib-modern-standard.html"><h3 class="article-title">Using Pathlib (Modern Standard)</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">)</span>
+<span class="n">file_path</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="s2">&quot;Content&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">file_path</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-pathlib-modern-standard.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/using-print-with-sysstdout.html"><h3 class="article-title">Using Print() With Sys.Stdout</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Hello
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/using-print-with-sysstdout.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/width-control.html"><h3 class="article-title">Width Control</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+<span class="n">score</span> <span class="o">=</span> <span class="mi">95</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">05</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Zero padded</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">00095</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/width-control.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+            <!-- /#posts-list -->
+<div class="pagination-centered">
+<h6 class="subheader">Page 3 of 3</h6>
+
+<p>
+            <a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced2.html">&laquo; Prev</a>
+
+</p>
+</div>
+
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/assignment.html">assignment</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/langchain.html">langchain</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/math.html">math</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/python_subtopics.html">python_subtopics</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/KaaviyasriVarshini">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/kaaviyasri-varshini-raju-2787b5241/">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>My Python Notes by Kaaviya</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>My Python Notes</title>
+
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://KaaviyasriVarshini.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://KaaviyasriVarshini.github.io/pynotes">My Python Notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/timezone-handling-with-zoneinfo.html"><h3 class="article-title">Timezone Handling With Zoneinfo</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+
+<span class="n">ny_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/New_York&quot;</span><span class="p">))</span>
+<span class="n">tokyo_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Asia/Tokyo&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New York:&quot;</span><span class="p">,</span> <span class="n">ny_time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tokyo:&quot;</span><span class="p">,</span> <span class="n">tokyo_time</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>New York: 2026-01-17 08:27:42.196164-05:00
+Tokyo: 2026-01-17 22:27:42.196647+09:00
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/timezone-handling-with-zoneinfo.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/tracking-state-using-global-variable.html"><h3 class="article-title">Tracking State Using Global Variable</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">requests</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_request</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">requests</span>
+    <span class="n">requests</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">handle_request</span><span class="p">()</span>
+<span class="n">handle_request</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">requests</span><span class="p">)</span>  <span class="c1"># Output: 2</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">2</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/tracking-state-using-global-variable.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/trigonometric-functions.html"><h3 class="article-title">Trigonometric Functions</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">angle</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span>  <span class="c1"># Sine of 30°</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span>  <span class="c1"># Cosine of 30°</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span>  <span class="c1"># Tangent of 30°</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">0.49999999999999994</span>
+<span class="mf">0.8660254037844387</span>
+<span class="mf">0.5773502691896257</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/trigonometric-functions.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/true-false.html"><h3 class="article-title">True False</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1">#2. Write a Python function named is_even() that:</span>
+
+<span class="c1">#Accepts a number as input.</span>
+
+<span class="c1">#Returns True if the number is even, False if odd.</span>
+<span class="c1">#Call this function with several test values and print the results.</span>
+<span class="c1">#Focus: Functions, return value, modular arithmetic.</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">even_number</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else …</span></code></pre></div><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/assignment.html">assignment</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/true-false.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/tuple-as-a-return-value.html"><h3 class="article-title">Tuple As A Return Value</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_coordinates</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">40.7128</span><span class="p">,</span> <span class="o">-</span><span class="mf">74.0060</span><span class="p">)</span>
+
+<span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">get_coordinates</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">40.7128</span>
+<span class="o">-</span><span class="mf">74.006</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/tuple-as-a-return-value.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/tuple-immutability.html"><h3 class="article-title">Tuple Immutability</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">coords</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># coords[0] = 30  # This will raise TypeError</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>(10, 20)
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/tuple-immutability.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/tuple-length-and-membership.html"><h3 class="article-title">Tuple Length And Membership</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>     <span class="c1"># Output: 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">20</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">)</span>    <span class="c1"># Output: True</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">3</span>
+<span class="n">True</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/tuple-length-and-membership.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/tuple-packing-and-unpacking.html"><h3 class="article-title">Tuple Packing And Unpacking</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">person</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">)</span>
+
+<span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">profession</span> <span class="o">=</span> <span class="n">person</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>        <span class="c1"># Alice</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>         <span class="c1"># 25</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">profession</span><span class="p">)</span>  <span class="c1"># Engineer</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>Alice
+25
+Engineer
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/tuple-packing-and-unpacking.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/type-hint-for-dictionaries.html"><h3 class="article-title">Type Hint For Dictionaries</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">count_fruits</span><span class="p">(</span><span class="n">fruit_counts</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">fruit_counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apple&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count_fruits</span><span class="p">(</span><span class="n">fruits</span><span class="p">))</span>  <span class="c1"># Output: 10</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">10</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/python_subtopics.html">python_subtopics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/type-hint-for-dictionaries.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/unary-operators.html"><h3 class="article-title">Unary Operators</h3></a>
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Unary plus → 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Unary minus → -5</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mf">5</span>
+<span class="o">-</span><span class="mf">5</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+                <a class="button radius secondary small right" href="https://KaaviyasriVarshini.github.io/pynotes/unary-operators.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+            <!-- /#posts-list -->
+<div class="pagination-centered">
+<h6 class="subheader">Page 45 of 56</h6>
+
+<p>
+            <a href="https://KaaviyasriVarshini.github.io/pynotes/index44.html">&laquo; Prev</a>
+
+        <a href="https://KaaviyasriVarshini.github.io/pynotes/index46.html">Next &raquo;</a>
+</p>
+</div>
+
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/assignment.html">assignment</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/langchain.html">langchain</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/math.html">math</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/python_subtopics.html">python_subtopics</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/KaaviyasriVarshini">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/kaaviyasri-varshini-raju-2787b5241/">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>My Python Notes by Kaaviya</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>

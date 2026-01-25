@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Exploring Module Content With Dir()</title>
+
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://KaaviyasriVarshini.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://KaaviyasriVarshini.github.io/pynotes">My Python Notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="https://KaaviyasriVarshini.github.io/pynotes/exploring-module-content-with-dir.html" rel="bookmark"
+        title="Permalink to Exploring Module Content With Dir()">Exploring Module Content With Dir()</a></h3>
+    </header>
+
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+    <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s1">&#39;__doc__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__file__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__loader__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__package__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;__spec__&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;acos&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;acosh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;asin&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;asinh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;atan&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;atan2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;atanh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cbrt&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ceil&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;comb&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;copysign&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cos&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cosh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;degrees&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dist&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;erf&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;erfc&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;exp&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;exp2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;expm1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;fabs&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;factorial&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;floor&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;fmod&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;frexp&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;fsum&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;gamma&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;gcd&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hypot&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;inf&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;isclose&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;isfinite&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;isinf&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;isnan&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;isqrt&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;lcm&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ldexp&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;lgamma&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;log&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;log10&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;log1p&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;log2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;modf&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;nan&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;nextafter&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;perm&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;pi&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;pow&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;prod&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;radians&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;remainder&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;sin&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;sinh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;sqrt&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;tan&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;tanh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;tau&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;trunc&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ulp&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 0</strong></p>
+<p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a>
+
+</p>
+
+
+
+
+</article>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/assignment.html">assignment</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/langchain.html">langchain</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/math.html">math</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/python_subtopics.html">python_subtopics</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/KaaviyasriVarshini">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/kaaviyasri-varshini-raju-2787b5241/">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>My Python Notes by Kaaviya</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Prompting Fundamentals</title>
+
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://KaaviyasriVarshini.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://KaaviyasriVarshini.github.io/pynotes">My Python Notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+<article>
+    <header>
+        <h3 class="article-title"><a href="https://KaaviyasriVarshini.github.io/pynotes/prompting-fundamentals.html" rel="bookmark"
+        title="Permalink to Prompting Fundamentals">Prompting Fundamentals</a></h3>
+    </header>
+
+<h6 class="subheader" title="2026-01-25T00:00:00-05:00">Sun 25 January 2026
+</h6>
+
+
+    <div class="highlight"><pre><span></span><code><span class="c1">#Initialize the Gemini Model</span>
+
+<span class="n">Copy</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_google_genai</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChatGoogleGenerativeAI</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatGoogleGenerativeAI</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gemini-2.5-flash&quot;</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;What is the capital of Canada?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>The capital of Canada is **Ottawa**.
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#Defining Few-Shot Examples</span>
+<span class="n">examples</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;Who lived longer, Steve Jobs or Albert Einstein?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;Do we need additional questions? Yes.</span>
+<span class="s2">Steve Jobs died at age 56.</span>
+<span class="s2">Albert Einstein died at age 76.</span>
+<span class="s2">Final answer: Albert Einstein.&quot;&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;When was Google&#39;s founder born?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;Do we need additional questions? Yes.</span>
+<span class="s2">Google was founded by Larry Page.</span>
+<span class="s2">Larry Page was born on March 26, 1973.</span>
+<span class="s2">Final answer: March 26, 1973.&quot;&quot;&quot;</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#Defining the Example Format</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.prompts</span><span class="w"> </span><span class="kn">import</span> <span class="n">PromptTemplate</span>
+
+<span class="n">example_prompt</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span>
+    <span class="s2">&quot;Question:</span><span class="se">\n</span><span class="si">{question}</span><span class="se">\n</span><span class="s2">Answer:</span><span class="se">\n</span><span class="si">{answer}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#Creating the FewShotPromptTemplate</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.prompts.few_shot</span><span class="w"> </span><span class="kn">import</span> <span class="n">FewShotPromptTemplate</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">FewShotPromptTemplate</span><span class="p">(</span>
+    <span class="n">examples</span><span class="o">=</span><span class="n">examples</span><span class="p">,</span>
+    <span class="n">example_prompt</span><span class="o">=</span><span class="n">example_prompt</span><span class="p">,</span>
+    <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;Question:</span><span class="se">\n</span><span class="si">{question}</span><span class="se">\n</span><span class="s2">Answer:&quot;</span><span class="p">,</span>
+    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#Executing the Prompt via a Chain</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.output_parsers</span><span class="w"> </span><span class="kn">import</span> <span class="n">StrOutputParser</span>
+
+<span class="n">chain</span> <span class="o">=</span> <span class="n">prompt</span> <span class="o">|</span> <span class="n">llm</span> <span class="o">|</span> <span class="n">StrOutputParser</span><span class="p">()</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span>
+    <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;How old was Bill Gates when Microsoft was founded?&quot;</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="k">Do</span><span class="w"> </span><span class="nv">we</span><span class="w"> </span><span class="nv">need</span><span class="w"> </span><span class="nv">additional</span><span class="w"> </span><span class="nv">questions</span>?<span class="w"> </span><span class="nv">Yes</span>.
+<span class="nv">Bill</span><span class="w"> </span><span class="nv">Gates</span><span class="w"> </span><span class="nv">was</span><span class="w"> </span><span class="nv">born</span><span class="w"> </span><span class="nv">on</span><span class="w"> </span><span class="nv">October</span><span class="w"> </span><span class="mi">28</span>,<span class="w"> </span><span class="mi">1955</span>.
+<span class="nv">Microsoft</span><span class="w"> </span><span class="nv">was</span><span class="w"> </span><span class="nv">founded</span><span class="w"> </span><span class="nv">on</span><span class="w"> </span><span class="nv">April</span><span class="w"> </span><span class="mi">4</span>,<span class="w"> </span><span class="mi">1975</span>.
+<span class="nv">From</span><span class="w"> </span><span class="nv">October</span><span class="w"> </span><span class="mi">28</span>,<span class="w"> </span><span class="mi">1955</span>,<span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">April</span><span class="w"> </span><span class="mi">4</span>,<span class="w"> </span><span class="mi">1975</span>,<span class="w"> </span><span class="nv">Bill</span><span class="w"> </span><span class="nv">Gates</span><span class="w"> </span><span class="nv">was</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="nv">years</span><span class="w"> </span><span class="nv">old</span>.
+<span class="nv">Final</span><span class="w"> </span><span class="nv">answer</span>:<span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="nv">years</span><span class="w"> </span><span class="nv">old</span>.
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#Semantic Similarity Example Selector (Gemini Embeddings)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.example_selectors</span><span class="w"> </span><span class="kn">import</span> <span class="n">SemanticSimilarityExampleSelector</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_google_genai</span><span class="w"> </span><span class="kn">import</span> <span class="n">GoogleGenerativeAIEmbeddings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langchain_chroma</span><span class="w"> </span><span class="kn">import</span> <span class="n">Chroma</span>
+
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">GoogleGenerativeAIEmbeddings</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;models/embedding-001&quot;</span>
+<span class="p">)</span>
+
+<span class="n">example_selector</span> <span class="o">=</span> <span class="n">SemanticSimilarityExampleSelector</span><span class="o">.</span><span class="n">from_examples</span><span class="p">(</span>
+    <span class="n">examples</span><span class="o">=</span><span class="n">examples</span><span class="p">,</span>          <span class="c1"># list of dicts</span>
+    <span class="n">embeddings</span><span class="o">=</span><span class="n">embeddings</span><span class="p">,</span>      <span class="c1"># embedding function</span>
+    <span class="n">vectorstore_cls</span><span class="o">=</span><span class="n">Chroma</span><span class="p">,</span>     <span class="c1"># ✅ THIS is required</span>
+    <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#Final Chat Prompt Composition</span>
+<span class="n">final_prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_messages</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">),</span>
+        <span class="n">few_shot_prompt</span><span class="p">,</span>
+        <span class="p">(</span><span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{instruction}</span><span class="se">\n</span><span class="si">{input}</span><span class="s2">&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#Running the Chat Few-Shot Chain</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">final_prompt</span> <span class="o">|</span> <span class="n">llm</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span>
+    <span class="s2">&quot;instruction&quot;</span><span class="p">:</span> <span class="s2">&quot;Please write meeting minutes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;On December 26, the product team reviewed project progress...&quot;</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nv">Okay</span><span class="p">,</span> <span class="nv">I</span> <span class="s s-Atom">can</span> <span class="s s-Atom">help</span> <span class="s s-Atom">you</span> <span class="s s-Atom">write</span> <span class="s s-Atom">meeting</span> <span class="s s-Atom">minutes</span> <span class="s s-Atom">based</span> <span class="s s-Atom">on</span> <span class="s s-Atom">that</span> <span class="s s-Atom">starting</span> <span class="s s-Atom">point</span><span class="p">.</span> <span class="nv">To</span> <span class="s s-Atom">make</span> <span class="s s-Atom">them</span> <span class="s s-Atom">comprehensive</span><span class="p">,</span> <span class="nv">I</span><span class="s s-Atom">&#39;ll make some reasonable assumptions about the meeting details. Feel free to adjust any of the assumed information.</span>
+
+<span class="s s-Atom">---</span>
+
+<span class="s s-Atom">**MEETING MINUTES**</span>
+
+<span class="s s-Atom">**Meeting Title:** Product Team Project Progress Review</span>
+<span class="s s-Atom">**Date:** December 26, 2023</span>
+<span class="s s-Atom">**Time:** 10:00 AM - 11:00 AM PST</span>
+<span class="s s-Atom">**Location:** Virtual Meeting (Zoom)</span>
+
+<span class="s s-Atom">**Attendees:**</span>
+<span class="s s-Atom">*   Sarah Chen (Product Manager - Chair)</span>
+<span class="s s-Atom">*   David Lee (Lead Developer)</span>
+<span class="s s-Atom">*   Maria Rodriguez (UX Designer)</span>
+<span class="s s-Atom">*   Tom Wilson (Marketing Liaison)</span>
+<span class="s s-Atom">*   Emily White (QA Lead - Minute Taker)</span>
+
+<span class="s s-Atom">**Absentees:** None</span>
+
+<span class="s s-Atom">---</span>
+
+<span class="s s-Atom">**1. Review of Project Alpha: &quot;New Feature Rollout&quot;**</span>
+<span class="s s-Atom">*   **Discussion:** Sarah opened the discussion by noting Project Alpha is largely on track for its upcoming beta. David confirmed backend stability and reported that all core functionalities are implemented. Maria presented minor UI feedback received from internal testing, suggesting a few tweaks for improved user experience and accessibility. Tom provided an update on marketing material preparation, confirming it&#39;s</span> <span class="s s-Atom">aligned</span> <span class="s s-Atom">with</span> <span class="s s-Atom">the</span> <span class="nb">beta</span> <span class="s s-Atom">launch</span> <span class="s s-Atom">date</span><span class="p">.</span> <span class="nv">Emily</span> <span class="s s-Atom">reported</span> <span class="s s-Atom">no</span> <span class="s s-Atom">critical</span> <span class="s s-Atom">bugs</span> <span class="s s-Atom">found</span> <span class="s s-Atom">in</span> <span class="s s-Atom">recent</span> <span class="nv">QA</span> <span class="s s-Atom">cycles</span><span class="p">,</span> <span class="s s-Atom">but</span> <span class="s s-Atom">highlighted</span> <span class="s s-Atom">a</span> <span class="s s-Atom">few</span> <span class="s s-Atom">minor</span> <span class="nv">UI</span> <span class="s s-Atom">inconsistencies</span><span class="p">.</span>
+<span class="o">*</span>   <span class="s s-Atom">**</span><span class="nv">Decisions</span><span class="o">:</span><span class="s s-Atom">**</span>
+    <span class="o">*</span>   <span class="nv">Prioritize</span> <span class="s s-Atom">the</span> <span class="s s-Atom">suggested</span> <span class="nv">UI</span> <span class="s s-Atom">tweaks</span> <span class="s s-Atom">for</span> <span class="nv">Project</span> <span class="nv">Alpha</span> <span class="s s-Atom">before</span> <span class="s s-Atom">the</span> <span class="nb">beta</span> <span class="s s-Atom">launch</span><span class="p">.</span>
+    <span class="o">*</span>   <span class="nv">Marketing</span> <span class="s s-Atom">materials</span> <span class="s s-Atom">to</span> <span class="s s-Atom">be</span> <span class="s s-Atom">finalized</span> <span class="s s-Atom">by</span> <span class="s s-Atom">end</span> <span class="s s-Atom">of</span> <span class="s s-Atom">week</span><span class="p">.</span>
+
+<span class="s s-Atom">**</span><span class="mf">2.</span> <span class="nv">Review</span> <span class="s s-Atom">of</span> <span class="nv">Project</span> <span class="nv">Beta</span><span class="o">:</span> <span class="s2">&quot;Platform Integration&quot;</span><span class="s s-Atom">**</span>
+<span class="o">*</span>   <span class="s s-Atom">**</span><span class="nv">Discussion</span><span class="o">:</span><span class="s s-Atom">**</span> <span class="nv">David</span> <span class="s s-Atom">reported</span> <span class="s s-Atom">that</span> <span class="s s-Atom">backend</span> <span class="s s-Atom">development</span> <span class="s s-Atom">for</span> <span class="nv">Project</span> <span class="nv">Beta</span> <span class="o">is</span> <span class="s s-Atom">slightly</span> <span class="s s-Atom">behind</span> <span class="s s-Atom">schedule</span> <span class="s s-Atom">due</span> <span class="s s-Atom">to</span> <span class="s s-Atom">unexpected</span> <span class="s s-Atom">complexities</span> <span class="s s-Atom">in</span> <span class="s s-Atom">database</span> <span class="s s-Atom">integration</span> <span class="s s-Atom">with</span> <span class="s s-Atom">the</span> <span class="s s-Atom">legacy</span> <span class="s s-Atom">system</span><span class="p">.</span> <span class="nv">He</span> <span class="s s-Atom">estimates</span> <span class="s s-Atom">a</span> <span class="mi">3</span><span class="o">-</span><span class="s s-Atom">day</span> <span class="s s-Atom">delay</span><span class="p">.</span> <span class="nv">Maria</span> <span class="s s-Atom">confirmed</span> <span class="s s-Atom">frontend</span> <span class="s s-Atom">development</span> <span class="o">is</span> <span class="s s-Atom">progressing</span> <span class="s s-Atom">well</span> <span class="s s-Atom">and</span> <span class="o">is</span> <span class="s s-Atom">ahead</span> <span class="s s-Atom">of</span> <span class="s s-Atom">schedule</span><span class="p">,</span> <span class="s s-Atom">with</span> <span class="mi">80</span><span class="c1">% of the UI complete. Emily highlighted potential risks if the backend delays impact the overall integration timeline, especially concerning end-to-end testing. Tom noted that the marketing team is ready to start drafting communications once a firm launch date is established.</span>
+<span class="o">*</span>   <span class="s s-Atom">**</span><span class="nv">Decisions</span><span class="o">:</span><span class="s s-Atom">**</span>
+    <span class="o">*</span>   <span class="nv">Allocate</span> <span class="s s-Atom">additional</span> <span class="s s-Atom">development</span> <span class="s s-Atom">resources</span> <span class="s s-Atom">to</span> <span class="s s-Atom">accelerate</span> <span class="nv">Project</span> <span class="nv">Beta</span> <span class="s s-Atom">backend</span> <span class="s s-Atom">work</span><span class="p">.</span>
+    <span class="o">*</span>   <span class="nv">Schedule</span> <span class="s s-Atom">a</span> <span class="s s-Atom">dedicated</span> <span class="s s-Atom">technical</span> <span class="s s-Atom">sync</span> <span class="s s-Atom">to</span> <span class="s s-Atom">address</span> <span class="s s-Atom">database</span> <span class="s s-Atom">integration</span> <span class="s s-Atom">challenges</span> <span class="s s-Atom">and</span> <span class="s s-Atom">identify</span> <span class="s s-Atom">potential</span> <span class="s s-Atom">solutions</span><span class="p">.</span>
+
+<span class="s s-Atom">**</span><span class="mf">3.</span> <span class="nv">Upcoming</span> <span class="nv">Milestones</span> <span class="s s-Atom">&amp;</span> <span class="nv">Blockers</span><span class="s s-Atom">**</span>
+<span class="o">*</span>   <span class="s s-Atom">**</span><span class="nv">Discussion</span><span class="o">:</span><span class="s s-Atom">**</span>
+    <span class="o">*</span>   <span class="nv">Project</span> <span class="nv">Alpha</span> <span class="nv">Beta</span> <span class="nv">Launch</span><span class="o">:</span> <span class="nv">Confirmed</span> <span class="s s-Atom">for</span> <span class="nv">January</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">2024.</span>
+    <span class="o">*</span>   <span class="nv">Project</span> <span class="nv">Beta</span> <span class="nv">Internal</span> <span class="nv">Demo</span><span class="o">:</span> <span class="nv">Tentatively</span> <span class="s s-Atom">scheduled</span> <span class="s s-Atom">for</span> <span class="nv">January</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2024</span><span class="p">,</span> <span class="s s-Atom">but</span> <span class="s s-Atom">subject</span> <span class="s s-Atom">to</span> <span class="s s-Atom">backend</span> <span class="s s-Atom">progress</span><span class="p">.</span>
+    <span class="o">*</span>   <span class="nv">Primary</span> <span class="nv">Blocker</span><span class="o">:</span> <span class="nv">Project</span> <span class="nv">Beta</span> <span class="s s-Atom">database</span> <span class="s s-Atom">integration</span> <span class="s s-Atom">complexity</span> <span class="s s-Atom">and</span> <span class="s s-Atom">associated</span> <span class="s s-Atom">delay</span><span class="p">.</span>
+
+<span class="s s-Atom">**</span><span class="mf">4.</span> <span class="nv">Open</span> <span class="nv">Discussion</span> <span class="s s-Atom">&amp;</span> <span class="nv">Next</span> <span class="nv">Steps</span><span class="s s-Atom">**</span>
+<span class="o">*</span>   <span class="nv">General</span> <span class="s s-Atom">agreement</span> <span class="s s-Atom">that</span> <span class="nv">Project</span> <span class="nv">Alpha</span> <span class="o">is</span> <span class="s s-Atom">in</span> <span class="s s-Atom">good</span> <span class="s s-Atom">shape</span> <span class="s s-Atom">and</span> <span class="s s-Atom">focus</span> <span class="s s-Atom">needs</span> <span class="s s-Atom">to</span> <span class="s s-Atom">shift</span> <span class="s s-Atom">to</span> <span class="s s-Atom">mitigating</span> <span class="s s-Atom">risks</span> <span class="s s-Atom">for</span> <span class="nv">Project</span> <span class="nv">Beta</span><span class="p">.</span> <span class="nv">Sarah</span> <span class="s s-Atom">emphasized</span> <span class="s s-Atom">the</span> <span class="s s-Atom">importance</span> <span class="s s-Atom">of</span> <span class="s s-Atom">clear</span> <span class="s s-Atom">communication</span> <span class="s s-Atom">regarding</span> <span class="s s-Atom">any</span> <span class="s s-Atom">further</span> <span class="s s-Atom">delays</span> <span class="s s-Atom">for</span> <span class="nv">Project</span> <span class="nv">Beta</span><span class="p">.</span>
+
+<span class="s s-Atom">---</span>
+
+<span class="s s-Atom">**</span><span class="nv">ACTION</span> <span class="nv">ITEMS</span><span class="o">:</span><span class="s s-Atom">**</span>
+
+<span class="p">|</span> <span class="nv">Who</span>             <span class="p">|</span> <span class="nv">What</span>                                                              <span class="p">|</span> <span class="nv">Due</span> <span class="nv">Date</span>        <span class="p">|</span>
+<span class="p">|</span> <span class="o">:-</span><span class="s s-Atom">-------------</span> <span class="p">|</span> <span class="o">:-</span><span class="s s-Atom">---------------------------------------------------------------</span> <span class="p">|</span> <span class="o">:-</span><span class="s s-Atom">-------------</span> <span class="p">|</span>
+<span class="p">|</span> <span class="nv">Maria</span> <span class="nv">Rodriguez</span> <span class="p">|</span> <span class="nv">Finalize</span> <span class="nv">UI</span> <span class="s s-Atom">mockups</span> <span class="s s-Atom">for</span> <span class="nv">Project</span> <span class="nv">Alpha</span> <span class="s s-Atom">tweaks</span>                      <span class="p">|</span> <span class="nv">December</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">2023</span> <span class="p">|</span>
+<span class="p">|</span> <span class="nv">David</span> <span class="nv">Lee</span>       <span class="p">|</span> <span class="nv">Reassign</span> <span class="nv">John</span> <span class="p">(</span><span class="nv">Developer</span><span class="p">)</span> <span class="s s-Atom">to</span> <span class="nv">Project</span> <span class="nv">Beta</span> <span class="s s-Atom">backend</span> <span class="s s-Atom">development</span>     <span class="p">|</span> <span class="nv">December</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">2023</span> <span class="p">|</span>
+<span class="p">|</span> <span class="nv">David</span> <span class="nv">Lee</span>       <span class="p">|</span> <span class="nv">Schedule</span> <span class="s s-Atom">technical</span> <span class="s s-Atom">sync</span> <span class="s s-Atom">for</span> <span class="nv">Project</span> <span class="nv">Beta</span> <span class="s s-Atom">database</span> <span class="s s-Atom">integration</span>     <span class="p">|</span> <span class="nv">December</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">2023</span> <span class="p">|</span>
+<span class="p">|</span> <span class="nv">Sarah</span> <span class="nv">Chen</span>      <span class="p">|</span> <span class="nv">Follow</span> <span class="s s-Atom">up</span> <span class="s s-Atom">with</span> <span class="nv">Marketing</span> <span class="s s-Atom">on</span> <span class="s s-Atom">final</span> <span class="nv">Project</span> <span class="nv">Alpha</span> <span class="nb">beta</span> <span class="s s-Atom">launch</span> <span class="s s-Atom">materials</span> <span class="p">|</span> <span class="nv">December</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">2023</span> <span class="p">|</span>
+<span class="p">|</span> <span class="nv">Emily</span> <span class="nv">White</span>     <span class="p">|</span> <span class="nv">Prepare</span> <span class="s s-Atom">a</span> <span class="s s-Atom">brief</span> <span class="s s-Atom">risk</span> <span class="s s-Atom">assessment</span> <span class="s s-Atom">for</span> <span class="nv">Project</span> <span class="nv">Beta</span> <span class="s s-Atom">integration</span> <span class="s s-Atom">delays</span> <span class="p">|</span> <span class="nv">January</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2024</span>   <span class="p">|</span>
+
+<span class="s s-Atom">---</span>
+
+<span class="s s-Atom">**</span><span class="nv">Next</span> <span class="nv">Meeting</span><span class="o">:</span><span class="s s-Atom">**</span>
+<span class="s s-Atom">**</span><span class="nv">Date</span><span class="o">:</span><span class="s s-Atom">**</span> <span class="nv">January</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2024</span>
+<span class="s s-Atom">**</span><span class="nv">Time</span><span class="o">:</span><span class="s s-Atom">**</span> <span class="mi">10</span><span class="o">:</span><span class="mi">00</span> <span class="nv">AM</span> <span class="o">-</span> <span class="mi">11</span><span class="o">:</span><span class="mi">00</span> <span class="nv">AM</span> <span class="nv">PST</span>
+<span class="s s-Atom">**</span><span class="nv">Purpose</span><span class="o">:</span><span class="s s-Atom">**</span> <span class="nv">Project</span> <span class="nv">Alpha</span> <span class="nv">Beta</span> <span class="nv">Readiness</span> <span class="s s-Atom">&amp;</span> <span class="nv">Project</span> <span class="nv">Beta</span> <span class="nv">Integration</span> <span class="nv">Update</span>
+
+<span class="s s-Atom">---</span>
+<span class="s s-Atom">**</span><span class="nv">Minutes</span> <span class="nv">Recorded</span> <span class="nv">By</span><span class="o">:</span><span class="s s-Atom">**</span> <span class="nv">Emily</span> <span class="nv">White</span>
+<span class="s s-Atom">**</span><span class="nv">Approved</span> <span class="nv">By</span><span class="o">:</span><span class="s s-Atom">**</span> <span class="nv">Sarah</span> <span class="nv">Chen</span> <span class="p">(</span><span class="nv">Product</span> <span class="nv">Manager</span><span class="p">)</span>
+<span class="s s-Atom">---</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 5</strong></p>
+<p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/langchain.html">langchain</a>
+
+</p>
+
+
+
+
+</article>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/assignment.html">assignment</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/langchain.html">langchain</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/math.html">math</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/python_subtopics.html">python_subtopics</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/KaaviyasriVarshini">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/kaaviyasri-varshini-raju-2787b5241/">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>My Python Notes by Kaaviya</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>
