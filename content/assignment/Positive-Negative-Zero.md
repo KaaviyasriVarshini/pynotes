@@ -1,3 +1,11 @@
+---
+title: Positive-Negative-Zero
+date: 2026-02-01
+author: Your Name
+cell_count: 2
+score: 0
+---
+
 ```python
 #1. Write a Python program that:
 
@@ -26,3 +34,7 @@ else:
 ```python
 
 ```
+
+
+---
+**Score: 0**
