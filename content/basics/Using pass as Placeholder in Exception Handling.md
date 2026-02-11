@@ -1,6 +1,6 @@
 ---
 title: Using Pass As Placeholder In Exception Handling
-date: 2026-02-01
+date: 2026-02-11
 author: Your Name
 cell_count: 2
 score: 0

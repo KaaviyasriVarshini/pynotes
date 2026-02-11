@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>My Python Notes - FastAPI-1</title>
+
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/normalize.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/style.css" />
+    <link rel="stylesheet" href="https://KaaviyasriVarshini.github.io/pynotes/theme/css/pygments.css" />	
+    <script src="https://KaaviyasriVarshini.github.io/pynotes/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="https://KaaviyasriVarshini.github.io/pynotes">My Python Notes</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        
+        
+
+            <article>
+                <a href="https://KaaviyasriVarshini.github.io/pynotes/fastapi.html"><h3 class="article-title">Fastapi</h3></a>
+<h6 class="subheader" title="2026-02-11T00:00:00-05:00">Wed 11 February 2026
+</h6>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1">#main.py vs Modular Applications</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">app.routes</span><span class="w"> </span><span class="kn">import</span> <span class="n">users</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">router</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s2">&quot;startup&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">startup</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting application&quot;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s2">&quot;shutdown&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shutting down application&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_15028</span><span class="o">/</span><span class="mf">329738538.</span><span class="nl">py</span><span class="p">:</span><span class="mi">5</span><span class="err">:</span><span class="w"> </span><span class="nl">DeprecationWarning</span><span class="p">:</span><span class="w"> </span>
+<span class="w">        </span><span class="n">on_event</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">deprecated</span><span class="p">,</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">lifespan</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">handlers</span><span class="w"> </span><span class="n">instead</span><span class="p">.</span>
+
+<span class="w">        </span><span class="k">Read</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span>
+<span class="w">        </span><span class="o">[</span><span class="n">FastAPI docs for Lifespan Events</span><span class="o">]</span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">fastapi</span><span class="p">.</span><span class="n">tiangolo</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">advanced</span><span class="o">/</span><span class="n">events</span><span class="o">/</span><span class="p">).</span>
+
+<span class="w">  </span><span class="nv">@app</span><span class="p">.</span><span class="n">on_event</span><span class="p">(</span><span class="ss">&quot;startup&quot;</span><span class="p">)</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_15028</span><span class="o">/</span><span class="mf">329738538.</span><span class="nl">py</span><span class="p">:</span><span class="mi">9</span><span class="err">:</span><span class="w"> </span><span class="nl">DeprecationWarning</span><span class="p">:</span><span class="w"> </span>
+<span class="w">        </span><span class="n">on_event</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">deprecated</span><span class="p">,</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">lifespan</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="n">handlers</span><span class="w"> </span><span class="n">instead</span><span class="p">.</span>
+
+<span class="w">        </span><span class="k">Read</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span>
+<span class="w">        </span><span class="o">[</span><span class="n">FastAPI docs for Lifespan Events</span><span class="o">]</span><span class="p">(</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">fastapi</span><span class="p">.</span><span class="n">tiangolo</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">advanced</span><span class="o">/</span><span class="n">events</span><span class="o">/</span><span class="p">).</span>
+
+<span class="w">  </span><span class="nv">@app</span><span class="p">.</span><span class="n">on_event</span><span class="p">(</span><span class="ss">&quot;shutdown&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseSettings</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
+    <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;FastAPI Service&quot;</span>
+    <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">settings</span> <span class="o">=</span> <span class="n">Settings</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="n">PydanticImportError</span>                       <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseSettings</span>
+      <span class="mi">3</span> <span class="k">class</span><span class="w"> </span><span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
+      <span class="mi">4</span>     <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;FastAPI Service&quot;</span>
+
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">py311</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pydantic</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">437</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="n">attr_name</span><span class="p">)</span>
+    <span class="mi">435</span> <span class="n">dynamic_attr</span> <span class="o">=</span> <span class="n">_dynamic_imports</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">attr_name</span><span class="p">)</span>
+    <span class="mi">436</span> <span class="k">if</span> <span class="n">dynamic_attr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="o">--&gt;</span> <span class="mi">437</span>     <span class="k">return</span> <span class="n">_getattr_migration</span><span class="p">(</span><span class="n">attr_name</span><span class="p">)</span>
+    <span class="mi">439</span> <span class="n">package</span><span class="p">,</span> <span class="n">module_name</span> <span class="o">=</span> <span class="n">dynamic_attr</span>
+    <span class="mi">441</span> <span class="k">if</span> <span class="n">module_name</span> <span class="o">==</span> <span class="s1">&#39;__module__&#39;</span><span class="p">:</span>
+
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">py311</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pydantic</span><span class="o">/</span><span class="n">_migration</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">304</span><span class="p">,</span> <span class="ow">in</span> <span class="n">getattr_migration</span><span class="o">.&lt;</span><span class="nb">locals</span><span class="o">&gt;.</span><span class="n">wrapper</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="mi">302</span>     <span class="k">return</span> <span class="n">import_string</span><span class="p">(</span><span class="n">REDIRECT_TO_V1</span><span class="p">[</span><span class="n">import_path</span><span class="p">])</span>
+    <span class="mi">303</span> <span class="k">if</span> <span class="n">import_path</span> <span class="o">==</span> <span class="s1">&#39;pydantic:BaseSettings&#39;</span><span class="p">:</span>
+<span class="o">--&gt;</span> <span class="mi">304</span>     <span class="k">raise</span> <span class="n">PydanticImportError</span><span class="p">(</span>
+    <span class="mi">305</span>         <span class="s1">&#39;`BaseSettings` has been moved to the `pydantic-settings` package. &#39;</span>
+    <span class="mi">306</span>         <span class="sa">f</span><span class="s1">&#39;See https://docs.pydantic.dev/</span><span class="si">{</span><span class="n">version_short</span><span class="p">()</span><span class="si">}</span><span class="s1">/migration/#basesettings-has-moved-to-pydantic-settings &#39;</span>
+    <span class="mi">307</span>         <span class="s1">&#39;for more details.&#39;</span>
+    <span class="mi">308</span>     <span class="p">)</span>
+    <span class="mi">309</span> <span class="k">if</span> <span class="n">import_path</span> <span class="ow">in</span> <span class="n">REMOVED_IN_V2</span><span class="p">:</span>
+    <span class="mi">310</span>     <span class="k">raise</span> <span class="n">PydanticImportError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;`</span><span class="si">{</span><span class="n">import_path</span><span class="si">}</span><span class="s1">` has been removed in V2.&#39;</span><span class="p">)</span>
+
+
+<span class="n">PydanticImportError</span><span class="p">:</span> <span class="err">`</span><span class="n">BaseSettings</span><span class="err">`</span> <span class="n">has</span> <span class="n">been</span> <span class="n">moved</span> <span class="n">to</span> <span class="n">the</span> <span class="err">`</span><span class="n">pydantic</span><span class="o">-</span><span class="n">settings</span><span class="err">`</span> <span class="n">package</span><span class="o">.</span> <span class="n">See</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.12</span><span class="o">/</span><span class="n">migration</span><span class="o">/</span><span class="c1">#basesettings-has-moved-to-pydantic-settings for more details.</span>
+
+<span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.12</span><span class="o">/</span><span class="n">u</span><span class="o">/</span><span class="n">import</span><span class="o">-</span><span class="n">error</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#Strong Typing for Path Parameters</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/</span><span class="si">{user_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#Optional vs Required Query Parameters</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_items</span><span class="p">(</span><span class="n">category</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="n">category</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#Schema as a Contract</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">UserCreate</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<hr>
+<p><strong>Score: 5</strong></p><p class="subheader">Category: <a href="https://KaaviyasriVarshini.github.io/pynotes/category/fastapi-1.html">FastAPI-1</a>
+
+</p>
+
+
+
+            </article>
+
+<div class="pagination-centered">
+<h6 class="subheader">Page 1 of 1</h6>
+
+<p>
+
+</p>
+</div>
+
+
+
+            <!-- /#posts-list -->
+
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/archives.html">Archives</a>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/advanced.html">advanced</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/assignment.html">assignment</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/basics.html">basics</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/fastapi-1.html">FastAPI-1</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/langchain.html">langchain</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/math.html">math</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/misc.html">misc</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/pandas-work.html">pandas-work</a></li>
+            <li><a href="https://KaaviyasriVarshini.github.io/pynotes/category/python_subtopics.html">python_subtopics</a></li>
+   
+        </ul>
+
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="https://github.com/KaaviyasriVarshini">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/kaaviyasri-varshini-raju-2787b5241/">LinkedIn</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>My Python Notes by Kaaviya</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>
